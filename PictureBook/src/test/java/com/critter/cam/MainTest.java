@@ -8,7 +8,7 @@ public class MainTest {
 	
 	@Test
 	void isJunitWorking() {    	
-        assertEquals("hello", Main.introduction("hi"));
+        assertEquals("hello to you", Main.introduction("hi"));
     }
 
 }
