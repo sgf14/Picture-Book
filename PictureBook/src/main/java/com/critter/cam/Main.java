@@ -4,7 +4,7 @@ public class Main {
 	
 	static String introduction(String intro) {
 		if (intro.length() == 2) {
-			return "hello";
+			return "hello to you";
 		} else
 			return "goodbye";
 	}
