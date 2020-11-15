@@ -10,6 +10,7 @@ public class MainTest {
 	@Test
 	void isJunitWorking() {    	
         assertTrue(true);
+        
     }
 	
 	@Test
