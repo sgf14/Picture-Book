@@ -1,7 +1,5 @@
 package com.critter.cam;
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -11,8 +9,7 @@ public class MainTest {
 	
 	@Test
 	void isJunitWorking() {    	
-        assertTrue(true);
-        
+        assertTrue(true);        
     }
 	
 	@Test
