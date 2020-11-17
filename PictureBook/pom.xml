@@ -1,5 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+        <groupId>io.helidon.applications</groupId>
+        <artifactId>helidon-se</artifactId>
+        <version>2.1.0</version>
+        <relativePath/>
+  </parent>
+  
   <groupId>com.critter.cam</groupId>
   <artifactId>PictureBook</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -8,6 +15,7 @@
   <properties>
   	 <maven.compiler.source>14</maven.compiler.source>
      <maven.compiler.target>14</maven.compiler.target>
+     <mainClass>com.critter.cam.Main</mainClass>
   </properties>
   
   
@@ -15,15 +23,44 @@
   	 <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
-        <version>5.6.0</version>
+        <!--  <version>5.6.2</version> These are all inherited from parent, left for ref only-->
         <scope>test</scope>
      </dependency>
      <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.6.0</version>
+        <!--  <version>5.6.2</version> -->
         <scope>test</scope>
      </dependency>
+     <dependency>
+            <groupId>io.helidon.webserver</groupId>
+            <artifactId>helidon-webserver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.media</groupId>
+            <artifactId>helidon-media-jsonp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.config</groupId>
+            <artifactId>helidon-config-yaml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.health</groupId>
+            <artifactId>helidon-health</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.health</groupId>
+            <artifactId>helidon-health-checks</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.metrics</groupId>
+            <artifactId>helidon-metrics</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.helidon.webclient</groupId>
+            <artifactId>helidon-webclient</artifactId>
+            <scope>test</scope>
+        </dependency>
   </dependencies>
   
   <build>
@@ -31,13 +68,13 @@
   		<plugin>
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-compiler-plugin</artifactId>
-    		<version>3.8.0</version>
+    		<!--  <version>3.8.0</version>  -->
 		</plugin>
 	    <plugin>
 	      <!-- Build an executable JAR -->
 	      <groupId>org.apache.maven.plugins</groupId>
 	      <artifactId>maven-jar-plugin</artifactId>
-	      <version>3.1.0</version>
+	      <!--  <version>3.8.0</version>  -->
 	      <configuration>
 	        <archive>
 	          <manifest>
@@ -51,13 +88,31 @@
 	    <plugin>
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-surefire-plugin</artifactId>
-    		<version>2.22.0</version>
+    		<!--  <version>2.22.0</version>  -->
 		</plugin>
 		<plugin>
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-failsafe-plugin</artifactId>
-    		<version>2.22.0</version>
+    		<!--  <version>2.22.0</version>  -->
 		</plugin>
+		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-libs</id>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.helidon.build-tools</groupId>
+                <artifactId>helidon-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>third-party-license-report</id>
+                    </execution>
+                </executions>
+            </plugin>
   	</plugins>
   </build>
 </project>
