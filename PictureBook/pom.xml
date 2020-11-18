@@ -9,7 +9,7 @@
   
   <groupId>com.critter.cam</groupId>
   <artifactId>PictureBook</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <!--<version>0.0.1-SNAPSHOT</version>   this actually gets overridden by helidon parent now. New name = PictureBook.jar -->
   <name>PictureBook</name>
   
   <properties>
@@ -70,12 +70,14 @@
     		<artifactId>maven-compiler-plugin</artifactId>
     		<!--  <version>3.8.0</version>  -->
 		</plugin>
+	    <!--
 	    <plugin>
-	      <!-- Build an executable JAR -->
+	       Build an executable JAR via maven.  Need this plugin prior to helidon change, but remove otherwise.  W/ helidon its already accounted for above
+	         and interferes with server startup if left un commented.
 	      <groupId>org.apache.maven.plugins</groupId>
 	      <artifactId>maven-jar-plugin</artifactId>
-	      <!--  <version>3.8.0</version>  -->
-	      <configuration>
+	        <version>3.8.0</version> 
+	        <configuration>
 	        <archive>
 	          <manifest>
 	            <addClasspath>true</addClasspath>
@@ -85,6 +87,7 @@
 	        </archive>
 	      </configuration>
 	    </plugin>
+	    -->
 	    <plugin>
     		<groupId>org.apache.maven.plugins</groupId>
     		<artifactId>maven-surefire-plugin</artifactId>
